@@ -1,6 +1,7 @@
 package org.exampledriven.hystrixeample.controller;
 
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
+import org.exampledriven.hystrixeample.domain.Customer;
 import org.exampledriven.hystrixeample.domain.MessageWrapper;
 import org.exampledriven.hystrixeample.service.CustomerCollapserService;
 import org.springframework.beans.factory.annotation.Autowired;

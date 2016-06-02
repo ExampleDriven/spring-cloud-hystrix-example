@@ -12,3 +12,9 @@ This example covers the following :
 - Hystrix request collapser using @HystrixCollapser
 - Hystrix dashboard
 - Turbine
+
+Test URLs :
+
+- Request collapser : http://localhost:8080/customer-collapser/1 and http://localhost:8080/customer-collapser/2
+- Fallback : http://localhost:8080/customer-fallback/2
+- Cache http://localhost:8080/customer-cache/2?name=Peter http://localhost:8080/customer-cache/2?name=Peterdddd 

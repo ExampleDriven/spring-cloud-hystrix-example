@@ -11,13 +11,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Future;
 
 @Service
 public class CustomerCollapserService {
-
-    private Logger logger = LoggerFactory.getLogger(CustomerCollapserService.class);
 
     // timerDelayInMilliseconds is set only for testing purposes
     @HystrixCollapser(scope = com.netflix.hystrix.HystrixCollapser.Scope.GLOBAL, batchMethod = "getCustomerByIds", collapserProperties = {
@@ -29,12 +29,13 @@ public class CustomerCollapserService {
 
     @HystrixCommand
     public List<MessageWrapper> getCustomerByIds(List<Integer> ids) {
-        logger.info("" + ids.size() + " calls collapsed into a single one");
 
         List<MessageWrapper> customers = new ArrayList<>(ids.size());
 
+        String message = "Batched calls with IDs " + Objects.toString(ids);
+
         for (Integer id : ids) {
-            customers.add(new MessageWrapper<>(new Customer(id, "First", "Last"), "This customer was queried in a batch"));
+            customers.add(new MessageWrapper<>(new Customer(id, "First", "Last"), message));
         }
 
         return customers;
