@@ -1,3 +1,6 @@
+spring:
+  application:
+    name: turbine
 
 server:
   port: 8082
@@ -5,21 +8,12 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
+      defaultZone: http://127.0.0.1:8761/eureka/
     healthcheck:
       enabled: true
     lease:
       duration: 5
----
-spring:
-  profiles: cloud
-eureka:
-  instance:
-    hostname: ${APPLICATION_DOMAIN}
-    nonSecurePort: 80
-
 
 turbine:
-  aggregator:
-    clusterConfig: default
-  appConfig: customer-client-service
+  clusterNameExpression: new String("default")
+  appConfig: HYSTRIX-EXAMPLE-SERVICE,HYSTRIX-EXAMPLE-SERVICE2

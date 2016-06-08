@@ -17,7 +17,12 @@ class HystrixCacheController {
 
     @RequestMapping(value = "/customer-cache/{id}", method = RequestMethod.GET, produces = "application/json")
     public Customer getCustomer(@CacheKey @PathVariable int id, @RequestParam String name) throws ExecutionException, InterruptedException {
-        return customerCacheService.createCustomer(id, name);
+        try {
+            HystrixRequestContext.initializeContext();
+            return customerCacheService.createCustomer(id, name);
+        } finally {
+            HystrixRequestContext.getContextForCurrentThread().shutdown();
+        }
     }
 
 
