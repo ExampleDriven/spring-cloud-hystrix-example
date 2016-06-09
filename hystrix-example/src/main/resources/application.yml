@@ -1,5 +1,5 @@
 server:
-  port: 8086
+  port: 8080
 
 eureka:
   instance:
@@ -15,4 +15,4 @@ eureka:
 
 spring:
   application:
-    name: hystrix-example-service2
+    name: hystrix-example-service
