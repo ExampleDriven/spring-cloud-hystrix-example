@@ -16,5 +16,5 @@ Feature | Test URL
  Hystrix stream | [http://localhost:8080/hystrix.stream](http://localhost:8080/hystrix.stream)
  Hystrix dashboard | [http://localhost:8081/hystrix/monitor?stream=http://localhost:8082/turbine.stream http://localhost:8081/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A8080%2Fhystrix.stream](http://localhost:8081/hystrix/monitor?stream=http://localhost:8082/turbine.stream http://localhost:8081/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A8080%2Fhystrix.stream)
  Turbine stream | [http://localhost:8082/turbine.stream](http://localhost:8082/turbine.stream)
- Cache | [http://localhost:8080/customer-cache/2?name=Peter](http://localhost:8080/customer-cache/2?name=Peter)  [http://localhost:8080/customer-cache/2?name=Peter2](http://localhost:8080/customer-cache/2?name=Peter2)
+ Cache |URL1: [http://localhost:8080/customer-cache/2?name=Peter](http://localhost:8080/customer-cache/2?name=Peter) URL2:  [http://localhost:8080/customer-cache/2?name=Peter2](http://localhost:8080/customer-cache/2?name=Peter2)
  
