@@ -7,6 +7,9 @@ import org.exampledriven.hystrixeample.domain.Customer;
 import org.springframework.stereotype.Service;
 
 
+/**
+ * @see org.exampledriven.hystrixeample.config.HystrixContextInterceptor
+ */
 @Service
 public class CustomerCacheService {
 
